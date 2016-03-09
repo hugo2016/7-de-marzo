@@ -1,12 +1,19 @@
-#Ejercicio
-#Generar un data frame con la tasa de desocupacion que inicia en el primer trimestre del 2005
-"Tasa de descupacion =3.4, 4.8, 3.3, 5.6, 3.2, 2.9 , 1.9, 2.8, 6.0, 4.3, 2.2
-#2) convertirla en serie de tiempo y graficar la ST y la tendencia 
-
-base<-c(3.4,4.8,3.3,5.6,3.2,2.9,1.9,2.8,6.0,4.3,2.2)
-base1<-data.frame(base)
-serie<-ts(base1,start=c(2005,1),freq=4) 
-pdf("Tasa_de_desocupacion.pdf")
-layout(1:2)
-plot(serie, main="Tasa de desocupacion", xlab="Años", ylab="Tasa" )
-plot(aggregate(serie), main="Tendencia", xlab="Años", ylab="Tasa"
+####Ejercicio ###
+  ###Generar un data frame con la tasa de desocupacion que inicia en el primer trimestre del 2015
+  ### tasa de desocupacion de 3.4,4.8,3.3,5.6,3.2,2.9,2.8,6.0,4.3,2.2
+  ##2) convertirla a en serie de tiempo y graficar la st y la tendencia 
+  ##3) opcional obtener un pdf con las 2 grficas en una misma  imagen 
+  a<- c(3.4,4.8,3.3,5.6,3.2,2.9,2.8,6.0,4.3,2.2)
+  tabla <- data.frame(a)
+  stmp <- ts(tabla,start = c(2005,1),frequency = 4)
+  stmp
+ 
+    +help("dev.off")
+  
+   ## exportando archivo a jpeg
+    jpeg(filename = "C:\\Users\\SALA-C8\\Documents\\tasa2.jpg") # crea un archivo jpg en la ruta indicada
+  ## debajo van todos lo graficos que deseamos 
+    layout(1:2)
+  plot(stmp,xlab="Año",ylab="Tasa de desocupacion",main="Tasa de desocupacion a partir del 2005")
+  plot(aggregate((stmp)),xlab="Año")
+  dev.off() # guarda todas la ordenes en el archivo jpeg
